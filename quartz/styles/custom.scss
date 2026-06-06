@@ -1,3 +1,126 @@
-@use "./variables.scss" as *;
+// Match hershfam.com aesthetic - early 2000s olive/gold/sienna
 
-// put your custom CSS here!
+// Header styling
+.page-header {
+  background-color: #b2b28c;
+  border-bottom: 4px solid #2e8b57;
+  padding: 8px 0;
+}
+
+// Page title in header
+.page-title {
+  color: white !important;
+  font-family: "Georgia", serif !important;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+// Left sidebar
+.left {
+  background-color: #f4f5f7;
+  border-right: 2px solid #b2b28c;
+}
+
+// Nav/explorer links
+.explorer .folder-title,
+.explorer a {
+  color: #284b63 !important;
+  font-weight: bold;
+}
+
+.explorer a:hover {
+  color: #d2691e !important;
+}
+
+// Search bar
+.search-button {
+  background-color: #ffcc00 !important;
+  color: white !important;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+// Article headings
+h1, h2 {
+  color: #9a322c !important;
+  font-family: "Georgia", serif;
+  border-bottom: 2px solid #b2b28c;
+  padding-bottom: 4px;
+}
+
+h3, h4 {
+  color: #284b63 !important;
+  font-family: "Georgia", serif;
+}
+
+// Links
+a {
+  color: #284b63 !important;
+}
+
+a:hover {
+  color: #d2691e !important;
+}
+
+// Content area
+article {
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+// Tags
+.tag-link {
+  background-color: #ffcc00 !important;
+  color: white !important;
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 2px 8px;
+}
+
+.tag-link:hover {
+  background-color: #d2691e !important;
+  color: white !important;
+}
+
+// Footer
+.footer {
+  background-color: #b2b28c;
+  border-top: 4px solid #2e8b57;
+  color: white;
+  
+  a {
+    color: #ffcc00 !important;
+  }
+  
+  a:hover {
+    color: #fff !important;
+  }
+}
+
+// Graph
+.graph {
+  border: 1px solid #b2b28c;
+  border-radius: 4px;
+}
+
+// Backlinks
+.backlinks {
+  border-top: 2px solid #b2b28c;
+}
+
+// Blockquotes - gives that old forum/blog feel
+blockquote {
+  border-left: 4px solid #ffcc00 !important;
+  background-color: #f4f5f7;
+  padding: 8px 16px;
+  font-style: italic;
+}
+
+// Code blocks
+pre {
+  border: 1px solid #b2b28c !important;
+  border-radius: 3px;
+}
