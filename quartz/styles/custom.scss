@@ -1,6 +1,4 @@
-// hershfam logs — olive/cream, hidden sidebar, clean reading
-
-@import url('https://fonts.googleapis.com/css2?family=Georgia&family=Courier+Prime&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
 :root {
   --olive: #b2b28c;
@@ -15,7 +13,6 @@
   --light-border: #e0ddd4;
 }
 
-// ── Reset sidebar to hidden by default ───────────────────
 .left {
   display: none !important;
 }
@@ -24,7 +21,6 @@
   display: none !important;
 }
 
-// Full width content
 .page {
   display: block !important;
 }
@@ -34,11 +30,6 @@
   margin: 0 auto;
   padding: 48px 32px 80px;
   background: var(--white);
-}
-
-// ── Top navigation bar ────────────────────────────────────
-#quartz-body > .page > .center {
-  position: relative;
 }
 
 .page-header {
@@ -58,7 +49,7 @@
   font-family: "Georgia", serif;
   font-size: 1.1rem;
   font-weight: bold;
-  
+
   a {
     color: #fff !important;
     text-decoration: none !important;
@@ -66,40 +57,25 @@
   }
 }
 
-// Nav links in header
-.page-header::after {
-  content: "hershfam.com · logs · about";
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.7);
-  font-family: Arial, sans-serif;
-}
+.search .search-button {
+  background: rgba(255,255,255,0.15) !important;
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  font-size: 0.8rem;
+  padding: 4px 12px;
 
-// Search tucked in header
-.search {
-  order: 2;
-  
-  .search-button {
-    background: rgba(255,255,255,0.15) !important;
-    border: 1px solid rgba(255,255,255,0.3) !important;
-    color: #fff !important;
-    border-radius: 4px !important;
-    font-size: 0.8rem;
-    padding: 4px 12px;
-    
-    &:hover {
-      background: rgba(255,255,255,0.25) !important;
-    }
+  &:hover {
+    background: rgba(255,255,255,0.25) !important;
   }
 }
 
-// ── Body background ───────────────────────────────────────
 body {
   background-color: var(--cream);
   font-family: Arial, sans-serif;
   color: var(--ink);
 }
 
-// ── Article typography ────────────────────────────────────
 article {
   background: var(--white);
   border: 1px solid var(--light-border);
@@ -143,13 +119,12 @@ a {
   color: #284b63 !important;
   text-decoration: underline;
   text-underline-offset: 3px;
-  
+
   &:hover {
     color: var(--sienna) !important;
   }
 }
 
-// Content meta (date etc)
 .content-meta {
   color: #999;
   font-size: 0.82rem;
@@ -158,16 +133,21 @@ a {
   border-bottom: 1px solid var(--light-border);
 }
 
-// Breadcrumbs
 .breadcrumb-container {
   font-size: 0.78rem;
   color: #999;
   margin-bottom: 16px;
-  a { color: #999 !important; text-decoration: none; }
-  a:hover { color: var(--olive-dark) !important; }
+
+  a {
+    color: #999 !important;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--olive-dark) !important;
+  }
 }
 
-// Blockquote
 blockquote {
   border-left: 3px solid var(--gold) !important;
   background: var(--cream);
@@ -178,7 +158,6 @@ blockquote {
   margin: 20px 0;
 }
 
-// Inline code
 code {
   background: var(--cream);
   border: 1px solid var(--light-border);
@@ -189,13 +168,12 @@ code {
   color: var(--red);
 }
 
-// Code blocks
 pre {
   background: #1c1c1e !important;
   border-radius: 6px !important;
   padding: 20px !important;
   border: none !important;
-  
+
   code {
     background: none;
     border: none;
@@ -204,7 +182,6 @@ pre {
   }
 }
 
-// Tags
 .tag-link {
   background: var(--gold) !important;
   color: var(--white) !important;
@@ -213,14 +190,13 @@ pre {
   font-weight: bold !important;
   padding: 2px 8px !important;
   text-decoration: none !important;
-  
+
   &:hover {
     background: var(--sienna) !important;
     color: var(--white) !important;
   }
 }
 
-// ── Footer ────────────────────────────────────────────────
 .footer {
   background-color: var(--olive);
   border-top: 4px solid var(--olive-dark);
@@ -228,16 +204,17 @@ pre {
   text-align: center;
   padding: 12px 0;
   font-size: 0.82rem;
-  
+
   a {
     color: var(--gold) !important;
     text-decoration: none;
-    
-    &:hover { color: #fff !important; }
+
+    &:hover {
+      color: #fff !important;
+    }
   }
 }
 
-// ── Graph ─────────────────────────────────────────────────
 .graph {
   border: 1px solid var(--light-border);
   border-radius: 6px;
@@ -245,7 +222,6 @@ pre {
   margin-top: 24px;
 }
 
-// ── Darkmode toggle ───────────────────────────────────────
 .darkmode {
   color: rgba(255,255,255,0.7) !important;
 }
