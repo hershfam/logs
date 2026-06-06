@@ -1,63 +1,37 @@
-:root {
-  --olive: #b2b28c;
-  --olive-dark: #2e8b57;
-  --gold: #ffcc00;
-  --sienna: #d2691e;
-  --red: #9a322c;
-  --cream: #f4f5f7;
-  --white: #ffffff;
-  --ink: #2b2b2b;
-  --mid: #555;
-  --light-border: #e0ddd4;
-}
+ :root {
+   --olive: #b2b28c;
+   --olive-dark: #2e8b57;
+   --gold: #ffcc00;
+   --sienna: #d2691e;
+   --red: #9a322c;
+   --cream: #f4f5f7;
+   --white: #ffffff;
+   --ink: #2b2b2b;
+   --mid: #555;
+   --light-border: #e0ddd4;
+ }
 
-// Global defaults (Desktop GitBook layout)
-body {
-  background-color: var(--cream);
-  color: var(--ink);
-}
+ // 1. Core Color Scheme
+ body {
+   background-color: var(--cream);
+   color: var(--ink);
+ }
 
-h1, h2 {
-  font-family: "Georgia", serif;
-  color: var(--red) !important;
-}
+ h1, h2, h3 {
+   font-family: "Georgia", serif;
+   color: var(--red) !important;
+ }
 
-code {
-  font-family: var(--codeFont); 
-  color: var(--red);
-  background: var(--cream);
-}
+ // 2. The Font Priority Setup (Forces JetBrains Mono safely)
+ code {
+   font-family: "JetBrains Mono" !important;
+   color: var(--red) !important;
+   background: var(--cream) !important;
+ }
 
-pre code {
-  font-family: var(--codeFont);
-  color: #e0e0e0;
-}
-
-// Mobile Optimization Rules (Triggers on phones and small tablets)
-@media (max-width: 768px) {
-  .page {
-    display: block !important;
-    padding: 16px !important;
-  }
-
-  .center {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 24px 16px !important;
-    margin: 0 auto !important;
-  }
-
-  // Prevents long strings of code from blowing out the screen width
-  pre, code {
-    white-space: pre-wrap !important;
-    word-break: break-all !important;
-  }
-
-  // Smoothly stacks sidebars out of the way on touch screens
-  .sidebar {
-    width: 100% !important;
-    position: static !important;
-    padding: 0 !important;
-    margin-top: 32px !important;
-  }
-}
+ pre {
+   code {
+     font-family: "JetBrains Mono" !important;
+     color: #e0e0e0 !important;
+   }
+ }
