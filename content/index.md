@@ -1,5 +1,7 @@
 ---
-title: My Devlog, Blog / Logs & Guides
+title: Home
 
-Welcome to my logs. projects range from programming, robotics, gamedev, home-labbing & cars
+My Devlog, Blog / Logs & Guides
+
+ projects range from programming & software , robotics, gamedev, home-labbing & cars, AI, PLC & SCADA
 ---
