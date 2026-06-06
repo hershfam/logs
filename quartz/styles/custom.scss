@@ -11,220 +11,25 @@
   --light-border: #e0ddd4;
 }
 
-// Safely hide the functional left/right sidebars
-.sidebar {
-  display: none !important;
-}
-
-// Safely hide the components overlapping your content
-.graph, .toc, #toc-content, .table-of-contents {
-  display: none !important;
-}
-
-// Fix the main display window so it centers globally on your screen
+// Custom clean color styling wrapped safely over standard layout defaults
 body {
   background-color: var(--cream);
-  font-family: Arial, sans-serif;
   color: var(--ink);
-  margin: 0;
-  padding: 0;
 }
 
-// The master container wrapper
-.page {
-  display: flex !important;
-  justify-content: center !important;
-  width: 100% !important;
-}
-
-// Your clean central reading column
-.center {
-  max-width: 720px;
-  width: 100% !important;
-  margin: 0 auto !important;
-  padding: 48px 32px 80px;
-  background: var(--white);
-  box-sizing: border-box;
-}
-
-.page-header {
-  background-color: var(--olive);
-  border-bottom: 4px solid var(--olive-dark);
-  padding: 0 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 52px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.page-title {
-  font-family: "Georgia", serif;
-  font-size: 1.1rem;
-  font-weight: bold;
-
-  a {
-    color: #fff !important;
-    text-decoration: none !important;
-    letter-spacing: 0.5px;
-  }
-}
-
-.search .search-button {
-  background: rgba(255,255,255,0.15) !important;
-  border: 1px solid rgba(255,255,255,0.3) !important;
-  color: #fff !important;
-  border-radius: 4px !important;
-  font-size: 0.8rem;
-  padding: 4px 12px;
-
-  &:hover {
-    background: rgba(255,255,255,0.25) !important;
-  }
-}
-
-article {
-  background: var(--white);
-  border: 1px solid var(--light-border);
-  border-radius: 6px;
-  padding: 40px 48px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  margin-top: 24px;
-}
-
-h1 {
+h1, h2 {
   font-family: "Georgia", serif;
   color: var(--red) !important;
-  font-size: 2rem;
-  border-bottom: 2px solid var(--olive) !important;
-  padding-bottom: 12px;
-  margin-bottom: 8px;
 }
 
-h2 {
-  font-family: "Georgia", serif;
-  color: var(--red) !important;
-  font-size: 1.35rem;
-  border-bottom: 1px solid var(--light-border) !important;
-  padding-bottom: 4px;
-  margin-top: 36px;
-}
-
-h3 {
-  color: #284b63 !important;
-  font-size: 1.05rem;
-  margin-top: 24px;
-}
-
-p {
-  line-height: 1.8;
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-
-a {
-  color: #284b63 !important;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-
-  &:hover {
-    color: var(--sienna) !important;
-  }
-}
-
-.content-meta {
-  color: #999;
-  font-size: 0.82rem;
-  margin-bottom: 28px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--light-border);
-}
-
-.breadcrumb-container {
-  font-size: 0.78rem;
-  color: #999;
-  margin-bottom: 16px;
-
-  a {
-    color: #999 !important;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: var(--olive-dark) !important;
-  }
-}
-
-blockquote {
-  border-left: 3px solid var(--gold) !important;
-  background: var(--cream);
-  padding: 10px 18px;
-  border-radius: 0 4px 4px 0;
-  color: var(--mid);
-  font-style: italic;
-  margin: 20px 0;
-}
-
+// Pulls JetBrains Mono from quartz.config.yaml dynamically without breaking things
 code {
-  background: var(--cream);
-  border: 1px solid var(--light-border);
-  border-radius: 3px;
-  padding: 1px 5px;
   font-family: var(--codeFont); 
-  font-size: 0.88em;
   color: var(--red);
+  background: var(--cream);
 }
 
-pre {
-  background: #1c1c1e !important;
-  border-radius: 6px !important;
-  padding: 20px !important;
-  border: none !important;
-
-  code {
-    background: none;
-    border: none;
-    color: #e0e0e0;
-    padding: 0;
-    font-family: var(--codeFont);
-  }
-}
-
-.tag-link {
-  background: var(--gold) !important;
-  color: var(--white) !important;
-  border-radius: 3px !important;
-  font-size: 0.75rem !important;
-  font-weight: bold !important;
-  padding: 2px 8px !important;
-  text-decoration: none !important;
-
-  &:hover {
-    background: var(--sienna) !important;
-    color: var(--white) !important;
-  }
-}
-
-.footer {
-  background-color: var(--olive);
-  border-top: 4px solid var(--olive-dark);
-  color: #fff;
-  text-align: center;
-  padding: 12px 0;
-  font-size: 0.82rem;
-
-  a {
-    color: var(--gold) !important;
-    text-decoration: none;
-
-    &:hover {
-      color: #fff !important;
-    }
-  }
-}
-
-.darkmode {
-  color: rgba(255,255,255,0.7) !important;
+pre code {
+  font-family: var(--codeFont);
+  color: #e0e0e0;
 }
