@@ -11,29 +11,40 @@
   --light-border: #e0ddd4;
 }
 
-// Safely hide the true left/right structural sidebars without breaking layouts
-.sidebar.left, .sidebar.right {
+// Safely hide the functional left/right sidebars
+.sidebar {
   display: none !important;
 }
 
-// This hides the floating Graph and Table of Contents blocks specifically 
-// so they stop trampling over your main text block
+// Safely hide the components overlapping your content
 .graph, .toc, #toc-content, .table-of-contents {
   display: none !important;
 }
 
-.page {
-  display: block !important;
+// Fix the main display window so it centers globally on your screen
+body {
+  background-color: var(--cream);
+  font-family: Arial, sans-serif;
+  color: var(--ink);
+  margin: 0;
+  padding: 0;
 }
 
+// The master container wrapper
+.page {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+// Your clean central reading column
 .center {
   max-width: 720px;
   width: 100% !important;
-  margin: 0 auto;
+  margin: 0 auto !important;
   padding: 48px 32px 80px;
   background: var(--white);
-  position: relative;
-  clear: both; // Prevents any rogue floating elements from colliding
+  box-sizing: border-box;
 }
 
 .page-header {
@@ -72,12 +83,6 @@
   &:hover {
     background: rgba(255,255,255,0.25) !important;
   }
-}
-
-body {
-  background-color: var(--cream);
-  font-family: Arial, sans-serif;
-  color: var(--ink);
 }
 
 article {
