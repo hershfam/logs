@@ -1,71 +1,259 @@
- :root {
-   --olive: #b2b28c;
-   --olive-dark: #2e8b57;
-   --gold: #ffcc00;
-   --sienna: #d2691e;
-   --red: #9a322c;
-   --cream: #f4f5f7;
-   --white: #ffffff;
-   --ink: #2b2b2b;
-   --mid: #555;
-   --light-border: #e0ddd4;
+@use "./variables.scss" as *;
 
-   // Code color scheme
-   --code-background: #e0e0e0; // Light grey for the code background
-   --code-text-color: #1d1f21; // Darker grey or black for code text
- }
+// =============================================================================
+// hershfam logs: custom styles
+//
+// Palette idea: one warm neutral scale plus ONE accent color (green).
+// The neutral values and the accent live in quartz.config.yaml.
+// The three variables below are extras that the yaml theme does not have.
+//
+// Layers, from back to front:
+//   --pagebg  the page behind everything
+//   --light   the panels (sidebars and the article)
+//   --codebg  code blocks and inline code
+// =============================================================================
 
- // 1. Core Color Scheme
- body {
-   background-color: var(--cream);
-   color: var(--ink);
- }
+:root {
+  --pagebg: #e3e1db;
+  --codebg: #ebe9e3;
+  --radius: 8px;
+}
 
- h1, h2, h3 {
-   font-family: "Georgia", serif;
-   color: var(--red) !important;
- }
+:root[saved-theme="dark"] {
+  --pagebg: #0a0a09;
+  --codebg: #1d1d1b;
+}
 
- // 2. The Font Priority Setup (Forces JetBrains Mono safely)
- code {
-   font-family: "JetBrains Mono" !important;
-   color: var(--code-text-color) !important;
-   background: var(--code-background) !important;
- }
+// -----------------------------------------------------------------------------
+// 1. Page background and base text
+// -----------------------------------------------------------------------------
+body {
+  background-color: var(--pagebg);
+  font-feature-settings: "calt" 0; // plain characters, no coding ligatures
+}
 
- pre {
-   code {
-     font-family: "JetBrains Mono" !important;
-     color: var(--code-text-color) !important;
-     background: var(--code-background) !important;
-   }
- }
+article p,
+article li,
+article td {
+  line-height: 1.75rem;
+}
 
- // Mobile Optimization Rules (Triggers on phones and small tablets)
- @media (max-width: 768px) {
-   .page {
-     display: block !important;
-     padding: 16px !important;
-   }
+// -----------------------------------------------------------------------------
+// 2. Headings: bold, tight, with markdown style markers
+// -----------------------------------------------------------------------------
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.02em;
+  font-weight: $boldWeight;
+}
 
-   .center {
-     width: 100% !important;
-     max-width: 100% !important;
-     padding: 24px 16px !important;
-     margin: 0 auto !important;
-   }
+article > h1,
+.article-title {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  margin: 0.75rem 0 0.5rem;
+}
 
-   // Prevents long strings of code from blowing out the screen width
-   pre, code {
-     white-space: pre-wrap !important;
-     word-break: break-all !important;
-   }
+// Section headings in the article get a rule under h2 and a "##" marker.
+// Delete the ::before blocks if you do not want the markers.
+article h2 {
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--lightgray);
+}
 
-   // Smoothly stacks sidebars out of the way on touch screens
-   .sidebar {
-     width: 100% !important;
-     position: static !important;
-     padding: 0 !important;
-     margin-top: 32px !important;
-   }
- }
+article h2::before,
+article h3::before {
+  color: var(--secondary);
+  opacity: 0.8;
+  font-weight: $normalWeight;
+}
+
+article h2::before {
+  content: "## ";
+}
+
+article h3::before {
+  content: "### ";
+}
+
+// -----------------------------------------------------------------------------
+// 3. Links: the only strong color on the page
+//    Internal links keep Quartz's tinted background. External links in the
+//    article get a soft underline. Sidebar and table of contents links stay plain.
+// -----------------------------------------------------------------------------
+article a.external {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--secondary) 40%, transparent);
+  text-underline-offset: 0.2em;
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 4. Code: its own surface, a border, and the syntax colors left alone
+// -----------------------------------------------------------------------------
+code {
+  background: var(--codebg);
+  border: 1px solid var(--lightgray);
+  padding: 0.05rem 0.3rem;
+  overflow-wrap: anywhere;
+}
+
+pre {
+  background: var(--codebg);
+  border: 1px solid var(--lightgray);
+  border-radius: var(--radius);
+
+  & > code {
+    background: none;
+    border: none;
+    overflow-wrap: normal; // long lines scroll sideways, they do not wrap
+  }
+}
+
+// Code inside a heading or a link should not look like a chip.
+h1 code,
+h2 code,
+h3 code,
+a code {
+  border: none;
+}
+
+// -----------------------------------------------------------------------------
+// 5. Blockquotes, tables, images
+// -----------------------------------------------------------------------------
+blockquote {
+  background: var(--codebg);
+  border-left: 3px solid var(--secondary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 1.25rem 0;
+  padding: 0.5rem 1rem;
+
+  & > p {
+    margin: 0.4rem 0;
+  }
+}
+
+th {
+  background: var(--codebg);
+  border-bottom: 2px solid var(--gray);
+}
+
+img {
+  border: 1px solid var(--lightgray);
+}
+
+// -----------------------------------------------------------------------------
+// 6. Layout: three separate panels on a darker page
+//    (desktop: left sidebar, article, right sidebar. tablet: left and article)
+// -----------------------------------------------------------------------------
+.page > #quartz-body {
+  column-gap: 1rem;
+  row-gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  @media all and ($desktop) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  // The article panel
+  .center {
+    background: var(--light);
+    border: 1px solid var(--lightgray);
+    border-radius: var(--radius);
+    padding: 1.5rem 2.5rem 2.5rem;
+    box-sizing: border-box;
+
+    @media all and ($mobile) {
+      padding: 1rem 1.1rem 1.75rem;
+    }
+  }
+
+  // The panel already provides the top spacing
+  .page-header {
+    margin-top: 0;
+  }
+
+  // Left sidebar panel
+  .sidebar.left {
+    @media all and not ($mobile) {
+      background: var(--light);
+      border: 1px solid var(--lightgray);
+      border-radius: var(--radius);
+      top: 1rem;
+      height: calc(100vh - 2rem);
+      padding: 1.5rem;
+    }
+  }
+
+  // Right sidebar panel (desktop only, on smaller screens it is not sticky)
+  .sidebar.right {
+    @media all and ($desktop) {
+      background: var(--light);
+      border: 1px solid var(--lightgray);
+      border-radius: var(--radius);
+      top: 1rem;
+      height: calc(100vh - 2rem);
+      padding: 1.5rem;
+    }
+  }
+
+  // Footer: plain text on the page background
+  footer {
+    color: var(--gray);
+    padding: 0.5rem 0 1rem;
+
+    a {
+      color: var(--gray);
+    }
+  }
+}
+
+// Sidebar site title
+.page-title {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+// -----------------------------------------------------------------------------
+// 7. Small screens: keep things readable, let code scroll
+// -----------------------------------------------------------------------------
+@media all and ($mobile) {
+  .page > #quartz-body {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin: 0 auto;
+
+    // The top bar: menu, site title, search and theme buttons
+    .sidebar.left {
+      background: var(--light);
+      border: 1px solid var(--lightgray);
+      border-radius: var(--radius);
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+    }
+
+    // Recent notes do not fit in that bar, so hide them on phones
+    .sidebar.left .recent-notes {
+      display: none;
+    }
+  }
+
+  pre {
+    font-size: 0.8rem;
+  }
+
+  .table-container > table {
+    margin: 0.5rem 0;
+    padding: 0;
+  }
+}
