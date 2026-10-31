@@ -18,28 +18,31 @@ configuration:
     typography:
       header: JetBrains Mono
       body: JetBrains Mono
-      code: IBM Plex Mono
+      code: JetBrains Mono
+    # One neutral scale plus one green accent (secondary and tertiary).
+    # The page background and code background are set in
+    # quartz/styles/custom.scss (--pagebg and --codebg).
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#fff23688"
+        light: "#f8f7f3"       # panels: sidebars and article
+        lightgray: "#d6d4cc"   # borders, dividers
+        gray: "#77746c"        # muted text, meta info
+        darkgray: "#2e2d2a"    # body text
+        dark: "#121211"        # headings
+        secondary: "#1d6b50"   # links and accent
+        tertiary: "#134a37"    # link hover
+        highlight: rgba(29, 107, 80, 0.10)
+        textHighlight: "#1d6b5033"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#b3aa0288"
+        light: "#141413"
+        lightgray: "#2b2b28"
+        gray: "#8a877f"
+        darkgray: "#cfccc4"
+        dark: "#f3f1eb"
+        secondary: "#6fd0a4"
+        tertiary: "#a8e8cb"
+        highlight: rgba(111, 208, 164, 0.12)
+        textHighlight: "#6fd0a44d"
 plugins:
   - source: github:quartz-community/created-modified-date
     enabled: true
